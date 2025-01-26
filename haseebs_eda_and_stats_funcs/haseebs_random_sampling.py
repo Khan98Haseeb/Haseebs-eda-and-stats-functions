@@ -3,7 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt, seaborn as sns
 
-def haseebs_random_sampling(values, sample_size, num_samples, with_replacement):
+def haseebs_random_sampling(values, sample_size, num_samples, with_replacement, plot_hist=True):
     """
     Perform random sampling on an array of values.
 
@@ -12,6 +12,7 @@ def haseebs_random_sampling(values, sample_size, num_samples, with_replacement):
         sample_size (int): The size of each sample
         num_samples (int): The number of samples to generate
         with_replacement (bool): Whether sampling should be with or without replacement
+        plot_hist (bool): Whether histogram should be plotted or not
 
     Returns:
         numpy array: A list of samples' means, where each sample is a randomly selected subset of the input values
@@ -31,12 +32,14 @@ def haseebs_random_sampling(values, sample_size, num_samples, with_replacement):
             sample = np.random.choice(values, size=sample_size, replace=with_replacement)
             sample_means.append(sample.mean())
 
-        # plot the histogram of sample means
-        sns.histplot(sample_means, kde=True)
-        plt.title('Histogram of Sample Means')
-        plt.xlabel('Mean')
-        plt.ylabel('Frequency')
-        plt.show()
+        if plot_hist:
+            # plot the histogram of sample means
+            sns.histplot(sample_means, kde=True)
+            plt.title('Histogram of 
+            Sample Means')
+            plt.xlabel('Mean')
+            plt.ylabel('Frequency')
+            plt.show()
 
         return np.array(sample_means), np.mean(sample_means), np.std(sample_means)
 
