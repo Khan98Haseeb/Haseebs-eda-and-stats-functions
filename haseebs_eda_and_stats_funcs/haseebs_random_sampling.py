@@ -35,8 +35,7 @@ def haseebs_random_sampling(values, sample_size, num_samples, with_replacement, 
         if plot_hist:
             # plot the histogram of sample means
             sns.histplot(sample_means, kde=True)
-            plt.title('Histogram of 
-            Sample Means')
+            plt.title('Histogram of Sample Means')
             plt.xlabel('Mean')
             plt.ylabel('Frequency')
             plt.show()
